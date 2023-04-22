@@ -15,7 +15,7 @@
             </div>
                 <h5 th:text="${authors.gender}"></h5>
                 <p th:text="${authors.bio}"></p>
-            <a href="#" class="btn btn-outline-primary p-2">View</a>
+            <a th:href="@{/profile/{profileId}/{UsersName}(profileId = ${authors.id}, UsersName=${authors.userName})}" class="btn btn-outline-primary p-2">View</a>
                 </div>
             </div>
 
@@ -37,12 +37,14 @@
             <p th:text="${articles.desc}" class="card-text"></p>
             <a href="#" class="btn btn-outline-danger p-2">Delete</a>
             <a href="#" class="btn btn-outline-success p-2">Edit</a>
-            <a href="#" class="btn btn-outline-primary p-2">View</a>
+            <a th:href="@{/profile/{profileId}/{UsersName}(profileId = ${articles.id}, UsersName=${articles.author.userName})}" class="btn btn-outline-primary p-2">View</a>
         </div>
     </div>
     </div>
 
     <div th:fragment="ProfileViewing">
+        <div>
 
+        </div>
     </div>
 </section>

@@ -16,4 +16,5 @@ public class ArticleRequest {
     private String description;
     private MultipartFile file;
     private int authorID;
+    private int[] categoryID;
 }
