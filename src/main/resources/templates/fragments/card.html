@@ -1,0 +1,48 @@
+<section xmlns="http://www.w3.org/1999/xhtml"
+         xmlns:th="http://www.thymeleaf.org"
+         >
+    <div  class="col-lg-4 col-sm-12 col-md-6 p-0 rounded-5 shadow-lg" th:fragment="Card-onlyView(author)" th:each="authors:${author}">
+        <img th:src="${authors.img}" class="card-img-top" alt="" />
+        <div class="card shadow-sm m-4" >
+            <div class="card-body">
+                <div class="d-flex d-sm-block d-lg-flex justify-content-start align-items-center" >
+                <img th:src="${authors.profileImg}" class="rounded-circle" alt="" width="100px" height="100px">
+                    <div class="card-name mx-2">
+                <h1 th:text="${authors.fullname}"></h1>
+                <h4 th:text="${authors.userName}"></h4>
+                </div>
+                </div>
+            </div>
+                <h5 th:text="${authors.gender}"></h5>
+                <p th:text="${authors.bio}"></p>
+            <a href="#" class="btn btn-outline-primary p-2">View</a>
+                </div>
+            </div>
+
+
+    <div class="col-12 card mt-5 col-12 p-0 rounded-5 shadow-lg">
+    <div class="card" th:fragment="Card-action(article)"  th:each="articles:${article}" >
+        <img th:src="${articles.author.img}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <div class="d-flex d-sm-block d-lg-flex justify-content-start align-items-center" >
+            <img class="rounded-circle" alt="" th:src="${articles.author.profileImg}" width="100px" height="100px"/>
+                <div class="card-detail mx-2">
+            <h1 th:text="${articles.author.fullname}" class="card-name"></h1>
+                <div class="d-flex">
+                <h2 th:text="${articles.author.userName}" class="card-username text-danger"></h2>
+                </div>
+            </div>
+            </div>
+            <h5 th:text="${articles.title}" class="card-title mt-3"></h5>
+            <p th:text="${articles.desc}" class="card-text"></p>
+            <a href="#" class="btn btn-outline-danger p-2">Delete</a>
+            <a href="#" class="btn btn-outline-success p-2">Edit</a>
+            <a href="#" class="btn btn-outline-primary p-2">View</a>
+        </div>
+    </div>
+    </div>
+
+    <div th:fragment="ProfileViewing">
+
+    </div>
+</section>

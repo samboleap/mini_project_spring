@@ -1,0 +1,27 @@
+<section xmlns="http://www.w3.org/1999/xhtml"
+         xmlns:th="http://www.thymeleaf.org">
+
+
+    <div   class="info" th:fragment="categories">
+      <img src="https://assets-global.website-files.com/5e9aa66fd3886aa2b4ec01ca/5fd3903b41d20bd2244ec3fd_programminglanguagesstickers.jpg" width="480" height="540"/>
+      <h1>ResAtica</h1>
+      <p class="w-100">Free posting and sharing any article with insane free dome</p>
+      <h1 class="w-100" >Popular Category</h1>
+      <div class="btn-light w-50">
+        <button class="btn btn-outline-secondary w-100" >ENGINEERING</button>
+        <button class="btn btn-outline-secondary w-100">FRAMEWORK</button>
+        <button class="btn btn-outline-secondary w-100">ADMINISTRATOR</button>
+        <button class="btn btn-outline-secondary w-100">PROGRAMMING</button>
+        <button class="btn btn-outline-secondary w-100">DOCKER</button>
+        <button class="btn btn-outline-secondary w-100">Other</button>
+      </div>
+    </div>
+    <div style="position: fixed; z-index: 20;
+    bottom: 50px; right: 55px;">
+        <a th:href="@{/newForm}">
+            <i style="color: blue; font-size: 50px;"
+               class="fa-solid fa-circle-plus"></i>
+        </a>
+    </div>
+
+</section>

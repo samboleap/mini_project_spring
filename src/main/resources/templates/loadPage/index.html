@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+    <th:block th:replace="~{fragments/meta}"></th:block>
+    <title layout:title-pattern="$LATOUT_TITLE - $CONTENT_TITLE">HomePage</title>
+    <th:block th:replace="~{fragments/style}"></th:block>
+</head>
+<body>
+<main layout:fragment="main-content"></main>
+<div th:replace="~{fragments/navbar}"></div>
+<div class="container" style="padding-top: 100px">
+    <div class="d-flex flex-sm-column flex-lg-row">
+        <div class="left">
+            <div class="container w-50">
+                <div class="row g-3">
+                    <div th:replace="~{fragments/card:: Card-action(${articles})}"></div>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div th:replace="~{fragments/category}"></div>
+        </div>
+    </div>
+</div>
+<div th:replace="~{fragments/footer}"></div>
+<th:block th:replace="~{fragments/script}"></th:block>
+</body>
+</html>

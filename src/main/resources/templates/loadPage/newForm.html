@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+
+
+<style>
+    body {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+    }
+    .container{
+        background-color: #3333;
+        padding: 1rem;
+        border-radius: 10px ;
+        width: 1000px;
+        height: 420px;
+    }
+    .profile-section img{
+        width: 300px;
+    }
+
+    .input-section{
+        width: 600px;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+<!--    use th:object to contain all field-->
+    <form th:object="${article}" th:action="@{/handleAddArticle}" method="POST" enctype="multipart/form-data">
+        <div class="d-flex bg-light py-4 rounded justify-content-center ">
+            <div class="profile-section  d-flex flex-column align-items-center">
+                <img id="output-image" th:src="@{resources/img/default/placeholder.jpg}" alt="profile image ">
+                <input class="form-control" type="file" name="file" onchange="loadFile(event)">
+            </div>
+            <div class="input-section ms-3">
+
+                <h3> New Article </h3>
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <label for="articleTitle"> Article Title </label>
+                        <input class="form-control" id="articleTitle" type="text" th:field="*{title}">
+                        <div class="form-text text-danger" th:errors="*{title}"></div>
+                    </div>
+                    <div>
+                        <label for="authorSelect"> Choose Author</label>
+                        <select id="authorSelect" th:field="*{authorID}" class="form-select">
+                            <option value="0">Choose Author</option>
+                            <option th:each="author : ${authors}"  th:value="${author.id}" th:text="${author.name}">One </option>
+
+                        </select>
+                    </div>
+
+                </div>
+
+
+                <label for="articleDescription"> Article Description </label>
+                <textarea id="articleDescription" th:field="*{description}"
+                          class="form-control "></textarea>
+                <div class="form-text text-danger " th:errors="*{description}"></div>
+
+<!--                <label for="articleImage">Article Image</label>-->
+<!--                <input class="form-control" th:field="*{imgURL}"-->
+<!--                       id="articleImage" type="text">-->
+
+                <div class="d-flex justify-content-between mt-2">
+                    <button class="btn btn-warning" type="submit">Post Article</button>
+                    <button class="btn btn-danger">Cancel</button>
+                </div>
+
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+    function loadFile(event){
+        let image = document.getElementById("output-image")
+        image.src = URL.createObjectURL(event.target.files[0])
+    }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta3/js/bootstrap.min.js" integrity="sha512-mp3VeMpuFKbgxm/XMUU4QQUcJX4AZfV5esgX72JQr7H7zWusV6lLP1S78wZnX2z9dwvywil1VHkHZAqfGOW7Nw==" crossorigin="anonymous"></script>
+
+</body>
+</html>

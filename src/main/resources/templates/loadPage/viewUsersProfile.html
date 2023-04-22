@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+    <th:block th:replace="~{fragments/meta}"></th:block>
+    <title layout:title-pattern="$LATOUT_TITLE - $CONTENT_TITLE">Users Profile</title>
+    <th:block th:replace="~{fragments/style}"></th:block>
+</head>
+<body>
+<div th:replace="~{fragments/navbar}"></div>
+<main layout:fragment="main-content">
+    <section>
+
+    </section>
+</main>
+
+<div th:replace="~{fragments/footer}"></div>
+<th:block th:replace="~{fragments/script}"></th:block>
+</body>
+</html>
